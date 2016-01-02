@@ -1,0 +1,32 @@
+<form>
+  <input type="text" ng-model="aptList.newApt.docName" name="docName" placeHolder = "Doctor's Name"/>
+
+  <input type="text" name="date" ng-model="aptList.newApt.date" placeHolder = "Appointment Date" />
+
+  <input type="text" name="time" ng-model="aptList.newApt.time" placeHolder = "Appointment Time" />
+
+  <input type="text" name="location" ng-model="aptList.newApt.location" placeHolder = "Location"/>
+
+  <input type="text" name="description" ng-model="aptList.newApt.description" placeHolder = "Description"/>
+
+  <input type="text" name="hospitalName" ng-model="aptList.newApt.hospitalName" placeHolder = "Hospital Name"/>
+  <!-- remove public -->
+  <input type="checkbox" ng-model="aptList.newApt.public">
+  <button ng-click="aptList.addApt()">Add Appointment!</button>
+
+</form>
+<ul>here
+      <li ui-sref="aptDetails({ aptId: apt._id })" ng-repeat="apt in aptList.apts">
+      <!-- <p>{{apt._id}}</p> -->
+      <strong>Appointment with : {{apt.docName}}</strong>
+      <p>{{apt.hospitalName}}</p>
+      <p>{{apt.date}}</p>
+      <p>{{apt.time}}</p>
+      <p>{{apt.location}}</p>
+      <p>{{apt.description}}</p>
+      <button ng-click="aptList.removeApt(apt)"> X </button>
+    </li>
+   <!--  <li>
+    	coming here
+    </li> -->
+  </ul>

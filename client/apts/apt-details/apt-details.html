@@ -1,0 +1,54 @@
+<a>The apt your selected is:</a>
+<form>
+	<ul style="list-style-type:none">
+		<li>
+	  		<strong>
+	  			Doctor: <input type="text" ng-model="aptDetails.apt.docName" />
+	  		</strong>
+	  	</li>
+	  	<li>
+	  		Date: <input type="text" ng-model="aptDetails.apt.date" />
+	  	</li>
+	  	<li>
+	  	HELLO
+	 		Time: <input type="text" ng-model="aptDetails.apt.time" />
+	  	</li>
+	  	<li>
+	  		Location: <input type="text" ng-model="aptDetails.apt.location" />
+	  	</li>
+	  	<li>
+	  		Description: <input type="text" ng-model="aptDetails.apt.description"/>
+	  	</li>
+	  	<li>
+	  		Hospital Name:<input type="text" ng-model="aptDetails.apt.hospitalName"/>
+	  	</li>
+	  	<!-- remove public key -->
+	  	<li>
+	  		Public apt? <input type="checkbox" ng-model="aptDetails.apt.public">
+	  	</li>
+	  	<li>
+	  		<button ng-click="aptDetails.save()">
+	  			Save changes
+	  		</button>
+	  	</li>
+	 </ul> 
+</form>
+<button ui-sref="apts"> Back</button>
+<ul>
+  	Users:
+  		<li ng-repeat="user in aptDetails.users">	
+    		<div>{{ user.emails[0].address }}</div>
+  		</li>
+</ul>
+
+<div class="angular-google-map-container">
+
+  <ui-gmap-google-map center="aptDetails.apt.location || aptDetails.map.center" events="aptDetails.map.events" zoom="aptDetails.map.zoom">
+
+    <ui-gmap-marker coords="aptDetails.apt.location" options="aptDetails.map.marker.options" events="aptDetails.map.marker.events" idkey="aptDetails.apt._id">
+    </ui-gmap-marker>
+  </ui-gmap-google-map>
+
+</div>
+
+
